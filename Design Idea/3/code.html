@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Ethereal Ledger - Draws</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@400;600;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#11131a",
+                        "on-secondary-container": "#ac93ff",
+                        "on-primary": "#005762",
+                        "tertiary-dim": "#00ec9a",
+                        "on-secondary-fixed-variant": "#652fe7",
+                        "primary-fixed-dim": "#00d4ec",
+                        "tertiary": "#9effc8",
+                        "primary": "#81ecff",
+                        "on-primary-fixed": "#003840",
+                        "on-tertiary-container": "#005a38",
+                        "on-tertiary": "#00643e",
+                        "on-surface-variant": "#a7aab9",
+                        "surface-dim": "#0c0e14",
+                        "tertiary-fixed-dim": "#00ec9a",
+                        "inverse-on-surface": "#53555c",
+                        "outline-variant": "#444854",
+                        "on-surface": "#e2e5f4",
+                        "on-primary-container": "#004d57",
+                        "surface-container": "#161922",
+                        "background": "#0c0e14",
+                        "secondary-fixed-dim": "#dacdff",
+                        "on-background": "#e2e5f4",
+                        "primary-dim": "#00d4ec",
+                        "surface-variant": "#222631",
+                        "secondary-fixed": "#e8deff",
+                        "inverse-primary": "#006976",
+                        "inverse-surface": "#faf8ff",
+                        "on-tertiary-fixed-variant": "#00653f",
+                        "secondary": "#cdbdff",
+                        "secondary-dim": "#7e51ff",
+                        "surface-container-lowest": "#000000",
+                        "tertiary-container": "#1dfba5",
+                        "on-error": "#490013",
+                        "surface-container-high": "#1c1f29",
+                        "error-dim": "#c8475d",
+                        "surface-container-highest": "#222631",
+                        "on-error-container": "#ff97a3",
+                        "primary-container": "#00e3fd",
+                        "tertiary-fixed": "#1dfba5",
+                        "secondary-container": "#2b007a",
+                        "outline": "#717583",
+                        "error": "#fd6f85",
+                        "on-tertiary-fixed": "#00452a",
+                        "surface": "#0c0e14",
+                        "surface-tint": "#81ecff",
+                        "error-container": "#8a1632",
+                        "on-primary-fixed-variant": "#005762",
+                        "on-secondary-fixed": "#4700bd",
+                        "on-secondary": "#4800bf",
+                        "primary-fixed": "#00e3fd",
+                        "surface-bright": "#272c39"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface-dim text-on-surface font-body antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full flex justify-between items-center px-8 h-20 bg-[#0c0e14]/60 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] z-50">
+<div class="flex items-center gap-4 pl-72"> <!-- Added pl-72 to avoid overlap with SideNav visually -->
+<span class="text-2xl font-black tracking-tighter text-white uppercase text-[#81ecff] font-['Manrope']">The Ethereal Ledger</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<button aria-label="notifications" class="text-slate-400 hover:text-white transition-colors hover:backdrop-blur-3xl hover:bg-white/5 transition-all duration-300 rounded-full p-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button aria-label="account_balance_wallet" class="text-slate-400 hover:text-white transition-colors hover:backdrop-blur-3xl hover:bg-white/5 transition-all duration-300 rounded-full p-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</button>
+</div>
+<div class="h-10 w-10 rounded-full overflow-hidden border border-outline-variant/30">
+<img alt="User profile concierge" class="w-full h-full object-cover" data-alt="High-contrast black and white portrait of a confident person in profile, clean minimalist lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVgCllyWmmLjvwmyxQOnAldkpbm_HeJJS6ASmb5LsXdIYLdTW37ypSVlpxNgCsvX4l4UiggkN700CyWZR4kT4rVuiU4JfX-7s1WYoDbu3jI9yXSdhawpW9mvFd5FoV0DSYN_qvLkGpqSm5G42nxwj2IasldnayRqi0mYiadSSXQ2ZuiiugKWRiGdVGki74qV38YPVOVfAX4l7z4vec-eRWN2fS78JuUGPjQoJ4c0KD-7jytHRyrWNv_UAN4DUk_egY5zOoAqEk8yl8"/>
+</div>
+</div>
+<!-- Separation Logic -->
+<div class="absolute bottom-0 left-0 bg-gradient-to-b from-[#11131a] to-transparent h-px w-full"></div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-72 z-40 bg-[#11131a]/80 backdrop-blur-2xl shadow-[20px_0_40px_rgba(0,0,0,0.3)] flex flex-col py-10 pl-6 pr-4">
+<!-- Header -->
+<div class="flex items-center gap-4 mb-12">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center border border-outline-variant/20 shadow-lg">
+<span class="material-symbols-outlined text-primary" data-icon="diamond">diamond</span>
+</div>
+<div>
+<h2 class="font-['Manrope'] text-lg font-extrabold text-white tracking-tight">The Ledger</h2>
+<p class="font-['Inter'] text-sm font-medium tracking-wide text-primary">Premium Tier</p>
+</div>
+</div>
+<!-- Main Nav -->
+<nav class="flex-1 flex flex-col gap-2 relative">
+<a class="flex items-center gap-3 px-4 py-3 rounded-r-full font-['Inter'] text-sm font-medium tracking-wide text-slate-500 hover:text-slate-200 hover:bg-[#1c1f29] transition-all duration-200 cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+                Ledger
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-r-full font-['Inter'] text-sm font-medium tracking-wide text-slate-500 hover:text-slate-200 hover:bg-[#1c1f29] transition-all duration-200 cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+                Performance
+            </a>
+<!-- Active State: Draws -->
+<a class="flex items-center gap-3 px-4 py-3 font-['Inter'] text-sm font-medium tracking-wide text-[#81ecff] bg-[#81ecff]/10 rounded-r-full shadow-[inset_0_0_12px_rgba(129,236,255,0.2)] cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="Confirmation_Number" data-weight="fill" style="font-variation-settings: 'FILL' 1;">confirmation_number</span>
+                Draws
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-r-full font-['Inter'] text-sm font-medium tracking-wide text-slate-500 hover:text-slate-200 hover:bg-[#1c1f29] transition-all duration-200 cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="volunteer_activism">volunteer_activism</span>
+                Philanthropy
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-r-full font-['Inter'] text-sm font-medium tracking-wide text-slate-500 hover:text-slate-200 hover:bg-[#1c1f29] transition-all duration-200 cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</nav>
+<!-- CTA & Footer -->
+<div class="mt-auto flex flex-col gap-6">
+<button class="w-full py-4 rounded-full bg-gradient-to-br from-primary to-primary-container text-surface-container-lowest font-headline font-bold text-sm uppercase tracking-widest shadow-[0_0_20px_rgba(129,236,255,0.3)] hover:shadow-[0_0_30px_rgba(129,236,255,0.5)] transition-shadow">
+                Enter Draw
+            </button>
+<div class="flex flex-col gap-2 pt-6 border-t border-surface-container">
+<a class="flex items-center gap-3 px-4 py-2 font-['Inter'] text-sm font-medium tracking-wide text-slate-500 hover:text-slate-200 hover:bg-[#1c1f29] rounded-r-full transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+                    Support
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 font-['Inter'] text-sm font-medium tracking-wide text-slate-500 hover:text-slate-200 hover:bg-[#1c1f29] rounded-r-full transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                    Logout
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pl-80 pt-28 pr-8 pb-12 min-h-screen">
+<div class="max-w-7xl mx-auto space-y-8">
+<!-- Hero: Jackpot Visualization -->
+<section class="relative bg-surface-container-low rounded-3xl p-16 flex flex-col items-center justify-center overflow-hidden group">
+<!-- Ambient Depth Background -->
+<div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-50"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/10 rounded-full blur-[80px] pointer-events-none"></div>
+<h2 class="font-label text-sm uppercase tracking-[0.2em] text-on-surface-variant mb-6 relative z-10">Global Pool Consensus</h2>
+<div class="relative z-10 flex flex-col items-center">
+<span class="font-headline text-8xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-primary to-primary-container drop-shadow-[0_0_30px_rgba(129,236,255,0.4)] transition-all duration-700 group-hover:scale-105 group-hover:drop-shadow-[0_0_50px_rgba(129,236,255,0.6)]">
+                        24,500,000
+                    </span>
+<span class="font-headline text-xl text-primary mt-2 font-bold uppercase tracking-widest">USDT Layer-2</span>
+</div>
+<div class="mt-10 relative z-10 flex gap-4">
+<div class="px-6 py-2 rounded-full bg-surface-variant/50 backdrop-blur-md border border-outline-variant/20 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_rgba(158,255,200,0.8)]"></span>
+<span class="font-body text-sm text-on-surface">Draw in 04:22:10</span>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Live Draw & Tickets -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Live Draw Reveal (Left Column) -->
+<section class="lg:col-span-8 bg-surface-container-low rounded-3xl p-10 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-12">
+<div>
+<h3 class="font-headline text-2xl font-bold text-white mb-2">Epoch #8492 Reveal</h3>
+<p class="font-body text-sm text-on-surface-variant">Cryptographic slots finalizing sequence...</p>
+</div>
+<span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary font-label text-xs uppercase tracking-wider border border-primary/20">Live Sync</span>
+</div>
+<!-- Animated Reveal Slots Concept -->
+<div class="flex items-center justify-between gap-4 mt-auto">
+<!-- Slot 1: Locked -->
+<div class="relative w-full aspect-[3/4] bg-surface-container rounded-2xl flex flex-col items-center justify-center overflow-hidden border border-outline-variant/10 shadow-[inset_0_2px_20px_rgba(0,0,0,0.5)]">
+<span class="font-headline text-5xl font-black text-on-surface">08</span>
+<div class="absolute bottom-4 w-8 h-1 rounded-full bg-surface-variant"></div>
+</div>
+<!-- Slot 2: Locked -->
+<div class="relative w-full aspect-[3/4] bg-surface-container rounded-2xl flex flex-col items-center justify-center overflow-hidden border border-outline-variant/10 shadow-[inset_0_2px_20px_rgba(0,0,0,0.5)]">
+<span class="font-headline text-5xl font-black text-on-surface">14</span>
+<div class="absolute bottom-4 w-8 h-1 rounded-full bg-surface-variant"></div>
+</div>
+<!-- Slot 3: Locked -->
+<div class="relative w-full aspect-[3/4] bg-surface-container rounded-2xl flex flex-col items-center justify-center overflow-hidden border border-outline-variant/10 shadow-[inset_0_2px_20px_rgba(0,0,0,0.5)]">
+<span class="font-headline text-5xl font-black text-on-surface">22</span>
+<div class="absolute bottom-4 w-8 h-1 rounded-full bg-surface-variant"></div>
+</div>
+<!-- Slot 4: Actively Revealing (Blurred concept) -->
+<div class="relative w-full aspect-[3/4] bg-surface-container rounded-2xl flex flex-col items-center justify-center overflow-hidden border border-primary/30 shadow-[0_0_20px_rgba(129,236,255,0.1)]">
+<span class="font-headline text-5xl font-black text-primary opacity-50 blur-sm">45</span>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent"></div>
+<div class="absolute bottom-4 w-8 h-1 rounded-full bg-primary/50 shadow-[0_0_10px_rgba(129,236,255,0.5)]"></div>
+</div>
+<!-- Slot 5: Pending -->
+<div class="relative w-full aspect-[3/4] bg-surface-container-highest rounded-2xl flex flex-col items-center justify-center overflow-hidden border border-outline-variant/5">
+<span class="material-symbols-outlined text-outline-variant text-4xl" data-icon="lock">lock</span>
+</div>
+</div>
+</section>
+<!-- Ticket Validation Matrix (Right Column) -->
+<section class="lg:col-span-4 bg-surface-container-low rounded-3xl p-8">
+<h3 class="font-headline text-xl font-bold text-white mb-6">Your Matrices</h3>
+<div class="space-y-4">
+<!-- 5 Matches (Jackpot/Purple) -->
+<div class="bg-surface-container rounded-2xl p-5 border border-secondary/30 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full blur-[40px] -mr-10 -mt-10"></div>
+<div class="flex justify-between items-center mb-4 relative z-10">
+<span class="font-label text-xs text-secondary-dim uppercase tracking-wider font-bold">Matrix Alpha</span>
+<span class="px-2 py-0.5 rounded text-[10px] bg-secondary/20 text-secondary font-bold uppercase tracking-widest shadow-[0_0_10px_rgba(205,189,255,0.3)]">5 Matches</span>
+</div>
+<div class="flex gap-2 relative z-10">
+<div class="w-8 h-10 rounded-lg bg-surface-variant flex items-center justify-center font-headline font-bold text-sm text-secondary shadow-[0_0_12px_rgba(205,189,255,0.4)] border border-secondary/50">08</div>
+<div class="w-8 h-10 rounded-lg bg-surface-variant flex items-center justify-center font-headline font-bold text-sm text-secondary shadow-[0_0_12px_rgba(205,189,255,0.4)] border border-secondary/50">14</div>
+<div class="w-8 h-10 rounded-lg bg-surface-variant flex items-center justify-center font-headline font-bold text-sm text-secondary shadow-[0_0_12px_rgba(205,189,255,0.4)] border border-secondary/50">22</div>
+<div class="w-8 h-10 rounded-lg bg-surface-variant flex items-center justify-center font-headline font-bold text-sm text-secondary shadow-[0_0_12px_rgba(205,189,255,0.4)] border border-secondary/50">45</div>
+<div class="w-8 h-10 rounded-lg bg-surface-variant flex items-center justify-center font-headline font-bold text-sm text-secondary shadow-[0_0_12px_rgba(205,189,255,0.4)] border border-secondary/50">51</div>
+</div>
+</div>
+<!-- 4 Matches (High Tier/Blue) -->
+<div class="bg-surface-container rounded-2xl p-5 border border-primary/20 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-24 h-24 bg-primary/5 rounded-full blur-[30px] -ml-8 -mt-8"></div>
+<div class="flex justify-between items-center mb-4 relative z-10">
+<span class="font-label text-xs text-on-surface-variant uppercase tracking-wider">Matrix Beta</span>
+<span class="px-2 py-0.5 rounded text-[10px] bg-primary/10 text-primary font-bold uppercase tracking-widest shadow-[0_0_8px_rgba(129,236,255,0.2)]">4 Matches</span>
+</div>
+<div class="flex gap-2 relative z-10">
+<div class="w-8 h-10 rounded-lg bg-surface-variant flex items-center justify-center font-headline font-bold text-sm text-primary shadow-[0_0_10px_rgba(129,236,255,0.3)] border border-primary/40">08</div>
+<div class="w-8 h-10 rounded-lg bg-surface-variant flex items-center justify-center font-headline font-bold text-sm text-primary shadow-[0_0_10px_rgba(129,236,255,0.3)] border border-primary/40">14</div>
+<div class="w-8 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center font-headline font-bold text-sm text-on-surface-variant border border-outline-variant/20">19</div>
+<div class="w-8 h-10 rounded-lg bg-surface-variant flex items-center justify-center font-headline font-bold text-sm text-primary shadow-[0_0_10px_rgba(129,236,255,0.3)] border border-primary/40">45</div>
+<div class="w-8 h-10 rounded-lg bg-surface-variant flex items-center justify-center font-headline font-bold text-sm text-primary shadow-[0_0_10px_rgba(129,236,255,0.3)] border border-primary/40">51</div>
+</div>
+</div>
+<!-- 3 Matches (Mid Tier/Emerald) -->
+<div class="bg-surface-container rounded-2xl p-5 border border-tertiary/20 relative overflow-hidden group">
+<div class="flex justify-between items-center mb-4 relative z-10">
+<span class="font-label text-xs text-on-surface-variant uppercase tracking-wider">Matrix Gamma</span>
+<span class="px-2 py-0.5 rounded text-[10px] bg-tertiary/10 text-tertiary font-bold uppercase tracking-widest shadow-[0_0_8px_rgba(158,255,200,0.1)]">3 Matches</span>
+</div>
+<div class="flex gap-2 relative z-10">
+<div class="w-8 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center font-headline font-bold text-sm text-on-surface-variant border border-outline-variant/20">02</div>
+<div class="w-8 h-10 rounded-lg bg-surface-variant flex items-center justify-center font-headline font-bold text-sm text-tertiary shadow-[0_0_8px_rgba(158,255,200,0.2)] border border-tertiary/40">14</div>
+<div class="w-8 h-10 rounded-lg bg-surface-variant flex items-center justify-center font-headline font-bold text-sm text-tertiary shadow-[0_0_8px_rgba(158,255,200,0.2)] border border-tertiary/40">22</div>
+<div class="w-8 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center font-headline font-bold text-sm text-on-surface-variant border border-outline-variant/20">33</div>
+<div class="w-8 h-10 rounded-lg bg-surface-variant flex items-center justify-center font-headline font-bold text-sm text-tertiary shadow-[0_0_8px_rgba(158,255,200,0.2)] border border-tertiary/40">51</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+</body></html>

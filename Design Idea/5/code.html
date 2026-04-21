@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Ethereal Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@400;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#11131a",
+                    "on-secondary-container": "#ac93ff",
+                    "on-primary": "#005762",
+                    "tertiary-dim": "#00ec9a",
+                    "on-secondary-fixed-variant": "#652fe7",
+                    "primary-fixed-dim": "#00d4ec",
+                    "tertiary": "#9effc8",
+                    "primary": "#81ecff",
+                    "on-primary-fixed": "#003840",
+                    "on-tertiary-container": "#005a38",
+                    "on-tertiary": "#00643e",
+                    "on-surface-variant": "#a7aab9",
+                    "surface-dim": "#0c0e14",
+                    "tertiary-fixed-dim": "#00ec9a",
+                    "inverse-on-surface": "#53555c",
+                    "outline-variant": "#444854",
+                    "on-surface": "#e2e5f4",
+                    "on-primary-container": "#004d57",
+                    "surface-container": "#161922",
+                    "background": "#0c0e14",
+                    "secondary-fixed-dim": "#dacdff",
+                    "on-background": "#e2e5f4",
+                    "primary-dim": "#00d4ec",
+                    "surface-variant": "#222631",
+                    "secondary-fixed": "#e8deff",
+                    "inverse-primary": "#006976",
+                    "inverse-surface": "#faf8ff",
+                    "on-tertiary-fixed-variant": "#00653f",
+                    "secondary": "#cdbdff",
+                    "secondary-dim": "#7e51ff",
+                    "surface-container-lowest": "#000000",
+                    "tertiary-container": "#1dfba5",
+                    "on-error": "#490013",
+                    "surface-container-high": "#1c1f29",
+                    "error-dim": "#c8475d",
+                    "surface-container-highest": "#222631",
+                    "on-error-container": "#ff97a3",
+                    "primary-container": "#00e3fd",
+                    "tertiary-fixed": "#1dfba5",
+                    "secondary-container": "#2b007a",
+                    "outline": "#717583",
+                    "error": "#fd6f85",
+                    "on-tertiary-fixed": "#00452a",
+                    "surface": "#0c0e14",
+                    "surface-tint": "#81ecff",
+                    "error-container": "#8a1632",
+                    "on-primary-fixed-variant": "#005762",
+                    "on-secondary-fixed": "#4700bd",
+                    "on-secondary": "#4800bf",
+                    "primary-fixed": "#00e3fd",
+                    "surface-bright": "#272c39"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope", "sans-serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "label": ["Inter", "sans-serif"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(34, 38, 49, 0.4);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+        }
+        .btn-gradient {
+            background: linear-gradient(135deg, #81ecff, #00e3fd);
+            box-shadow: 0 0 20px rgba(0, 212, 236, 0.4);
+        }
+        .btn-gradient:hover {
+            background: linear-gradient(135deg, #00d4ec, #00e3fd);
+            box-shadow: 0 0 30px rgba(0, 212, 236, 0.6);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #81ecff, #00e3fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-charity {
+            background: linear-gradient(135deg, #9effc8, #1dfba5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .ghost-border {
+            border: 1px solid rgba(68, 72, 84, 0.15);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 -1px 0 0 #9effc8, 0 10px 40px -10px rgba(158, 255, 200, 0.1);
+        }
+        .ambient-glow {
+            box-shadow: 0 20px 80px rgba(129, 236, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body antialiased min-h-screen overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-[#0c0e14]/60 backdrop-blur-xl docked full-width top-0 z-50 fixed left-0 w-full flex justify-between items-center px-8 h-20 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+<div class="flex items-center gap-2">
+<span class="font-headline font-black tracking-tighter text-white uppercase text-2xl">The Ethereal Ledger</span>
+</div>
+<nav class="hidden md:flex items-center gap-8 font-label text-sm font-medium">
+<a class="text-[#81ecff] font-bold border-b-2 border-[#81ecff] pb-1" href="#">Ledger</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Performance</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Draws</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Philanthropy</a>
+</nav>
+<div class="flex items-center gap-4 text-[#81ecff]">
+<button class="hover:backdrop-blur-3xl hover:bg-white/5 transition-all duration-300 p-2 rounded-full active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button class="hover:backdrop-blur-3xl hover:bg-white/5 transition-all duration-300 p-2 rounded-full active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_balance_wallet</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden ml-2 ghost-border">
+<img alt="User profile concierge" class="w-full h-full object-cover" data-alt="close up professional portrait of a person against a dark studio background with subtle cool rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHdbgaSNDyd-VV4GOuBwcutvm3ux7gI6PdZ5-ROuDXJiWl-2FZAQr-1zS4bP4nHhlaIH5Ljb3_Cgh7qw7xa5tKKTuZSKnuWvNdPUEbT8s0OQwcEJoJpETIbPYUNf4qqzUgjxr9-WH23yirjpO1okHWZ9eUAuXyL4ZZylN_VgrTybRsheUQRUp0WHVfOWAV4fTUPHZskDGW5RF07PNfvIxLypJERrPjA7UsBO7p4_HR-_q_JyuZB4K8PfTLUv6Z8i3yyQprZmlVbSRI"/>
+</div>
+</div>
+<!-- Separation Logic -->
+<div class="absolute bottom-0 left-0 bg-gradient-to-b from-[#11131a] to-transparent h-px w-full"></div>
+</header>
+<!-- Main Canvas -->
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[819px] flex items-center justify-center overflow-hidden px-6 py-20">
+<!-- Abstract Background Elements -->
+<div class="absolute inset-0 z-0 opacity-30 mix-blend-screen pointer-events-none">
+<div class="absolute top-[20%] left-[10%] w-[40vw] h-[40vw] rounded-full bg-primary/10 blur-[120px]"></div>
+<div class="absolute bottom-[10%] right-[5%] w-[30vw] h-[30vw] rounded-full bg-secondary/10 blur-[100px]"></div>
+</div>
+<div class="relative z-10 max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full surface-container-low ghost-border">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Live Ledger Network</span>
+</div>
+<h1 class="font-headline text-5xl lg:text-7xl font-extrabold tracking-tight leading-tight">
+                        Play. Win.<br/>
+<span class="text-gradient">Give Back.</span>
+</h1>
+<p class="font-body text-lg text-on-surface-variant max-w-lg leading-relaxed">
+                        A decentralized high-stakes ledger combining precision performance tracking, exclusive reward draws, and autonomous philanthropic yield generation.
+                    </p>
+<div class="flex flex-wrap items-center gap-4 pt-4">
+<button class="btn-gradient font-label font-bold text-on-primary-container px-8 py-4 rounded-full transition-all duration-300">
+                            Enter Draw
+                        </button>
+<button class="glass-panel font-label font-medium text-on-surface px-8 py-4 rounded-full ghost-border hover:bg-surface-container transition-all duration-300 flex items-center gap-2">
+                            View Ledger <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Stats Bento -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 relative">
+<!-- Glass highlight -->
+<div class="absolute -inset-4 bg-gradient-to-tr from-primary/5 to-transparent rounded-3xl blur-2xl z-0 pointer-events-none"></div>
+<div class="glass-panel rounded-2xl p-8 ghost-border ambient-glow relative z-10 hover:bg-surface-container transition-all duration-500 group">
+<div class="w-12 h-12 rounded-full bg-surface flex items-center justify-center mb-6 ghost-border group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-xl">account_balance</span>
+</div>
+<p class="font-label text-sm text-on-surface-variant mb-1 uppercase tracking-wide">Global Prize Pool</p>
+<p class="font-headline text-4xl font-bold text-white">$1.24M<span class="text-primary text-xl ml-1">USDC</span></p>
+</div>
+<div class="glass-panel rounded-2xl p-8 ghost-border ambient-glow relative z-10 hover:bg-surface-container transition-all duration-500 group mt-8 sm:mt-12">
+<div class="w-12 h-12 rounded-full bg-surface flex items-center justify-center mb-6 ghost-border group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-tertiary text-xl">volunteer_activism</span>
+</div>
+<p class="font-label text-sm text-on-surface-variant mb-1 uppercase tracking-wide">Total Philanthropy</p>
+<p class="font-headline text-4xl font-bold text-white">$450K<span class="text-tertiary text-xl ml-1">USD</span></p>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>

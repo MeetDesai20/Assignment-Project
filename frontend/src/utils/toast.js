@@ -1,0 +1,14 @@
+import { toast } from 'react-toastify';
+
+export const extractApiErrorMessage = (error, fallback = 'Something went wrong') => {
+  return (
+    error?.response?.data?.message
+    || error?.message
+    || fallback
+  );
+};
+
+export const notifySuccess = (message) => toast.success(message);
+export const notifyError = (message) => toast.error(message);
+export const notifyWarning = (message) => toast.warn(message);
+export const notifyInfo = (message) => toast.info(message);

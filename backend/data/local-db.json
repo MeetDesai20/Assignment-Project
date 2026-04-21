@@ -1,0 +1,146 @@
+{
+  "users": [
+    {
+      "id": "9a0d4a5f-52a3-4dc0-9c1f-73d5a2c5cbf7",
+      "email": "admin@system.com",
+      "full_name": "System Admin",
+      "password_hash": "$2a$10$jOavvRhpMZFGVrj/q0OBMOqF9uuahf1EBIchjEdtUptYjo/D9idj6",
+      "avatar_url": null,
+      "role": "admin",
+      "is_active": true,
+      "created_at": "2026-04-21T13:20:00.000Z",
+      "updated_at": "2026-04-21T13:20:00.000Z"
+    },
+    {
+      "id": "d28fc1e5-7077-4a75-8928-286fbd7fd588",
+      "email": "meet@gmail.com",
+      "full_name": "Meet ",
+      "password_hash": "$2a$10$1hDXOIpQdKQfW9Y9bSWyK.iGibEiVEmSucjhIzgON7yevUrs90sUa",
+      "avatar_url": null,
+      "role": "user",
+      "is_active": true,
+      "created_at": "2026-04-21T19:15:42.131Z",
+      "updated_at": "2026-04-21T19:15:42.131Z"
+    }
+  ],
+  "subscriptions": [
+    {
+      "id": "9fcddffc-ec55-4413-b009-7ebf63528eb2",
+      "user_id": "d28fc1e5-7077-4a75-8928-286fbd7fd588",
+      "razorpay_customer_id": null,
+      "razorpay_subscription_id": "mock_sub_1776798949085",
+      "razorpay_payment_id": "mock_pay_1776798949085",
+      "plan_type": "yearly",
+      "status": "cancelled",
+      "current_period_start": "2026-04-21T19:15:49.085Z",
+      "current_period_end": "2027-04-21T19:15:49.085Z",
+      "renewal_date": "2027-04-21T19:15:49.085Z",
+      "price_amount": 499.99,
+      "cancelled_at": "2026-04-21T19:36:04.552Z",
+      "created_at": "2026-04-21T19:15:49.086Z",
+      "updated_at": "2026-04-21T19:36:04.553Z"
+    },
+    {
+      "id": "35d8b875-f27d-4a3f-98bb-62ac848ca872",
+      "user_id": "d28fc1e5-7077-4a75-8928-286fbd7fd588",
+      "razorpay_customer_id": null,
+      "razorpay_subscription_id": "mock_sub_1776800167190",
+      "razorpay_payment_id": "mock_pay_1776800167190",
+      "plan_type": "monthly",
+      "status": "cancelled",
+      "current_period_start": "2026-04-21T19:36:07.190Z",
+      "current_period_end": "2026-05-21T19:36:07.190Z",
+      "renewal_date": "2026-05-21T19:36:07.190Z",
+      "price_amount": 49.99,
+      "cancelled_at": "2026-04-21T19:51:43.106Z",
+      "created_at": "2026-04-21T19:36:07.191Z",
+      "updated_at": "2026-04-21T19:51:43.108Z"
+    },
+    {
+      "id": "09167861-dc38-4a08-ab8a-b2564a91d5cc",
+      "user_id": "d28fc1e5-7077-4a75-8928-286fbd7fd588",
+      "razorpay_customer_id": null,
+      "razorpay_subscription_id": "mock_sub_1776801108314",
+      "razorpay_payment_id": "mock_pay_1776801108314",
+      "plan_type": "monthly",
+      "status": "cancelled",
+      "current_period_start": "2026-04-21T19:51:48.314Z",
+      "current_period_end": "2026-05-21T19:51:48.314Z",
+      "renewal_date": "2026-05-21T19:51:48.314Z",
+      "price_amount": 49.99,
+      "cancelled_at": "2026-04-21T19:54:43.246Z",
+      "created_at": "2026-04-21T19:51:48.315Z",
+      "updated_at": "2026-04-21T19:54:43.248Z"
+    },
+    {
+      "id": "20455568-d826-41a7-b3b0-a0c4fbb4c504",
+      "user_id": "d28fc1e5-7077-4a75-8928-286fbd7fd588",
+      "razorpay_customer_id": null,
+      "razorpay_subscription_id": "mock_sub_1776801293187",
+      "razorpay_payment_id": "mock_pay_1776801293187",
+      "plan_type": "yearly",
+      "status": "active",
+      "current_period_start": "2026-04-21T19:54:53.187Z",
+      "current_period_end": "2027-04-21T19:54:53.187Z",
+      "renewal_date": "2027-04-21T19:54:53.187Z",
+      "price_amount": 499.99,
+      "cancelled_at": null,
+      "created_at": "2026-04-21T19:54:53.188Z",
+      "updated_at": "2026-04-21T19:54:53.188Z"
+    }
+  ],
+  "scores": [],
+  "charities": [
+    {
+      "id": "e676a5b8-5d1d-4adf-be5f-68e9cc5876d0",
+      "name": "Community Golf Foundation",
+      "description": "Helps expand access to golf for young players and local communities.",
+      "logo_url": null,
+      "website": "https://example.com/community-golf",
+      "is_featured": true,
+      "is_active": true,
+      "created_at": "2026-04-21T13:13:55.846Z",
+      "updated_at": "2026-04-21T13:13:55.846Z"
+    },
+    {
+      "id": "08c6c21f-f925-489d-8582-7511d736b7ea",
+      "name": "Fairway Futures",
+      "description": "Supports coaching, equipment, and mentorship for youth golf programs.",
+      "logo_url": null,
+      "website": "https://example.com/fairway-futures",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-04-21T13:13:55.846Z",
+      "updated_at": "2026-04-21T13:13:55.846Z"
+    }
+  ],
+  "draws": [
+    {
+      "id": "d1683be9-a315-4f2e-a82d-f40f0c78c246",
+      "draw_month": 4,
+      "draw_year": 2026,
+      "draw_date": "2026-04-21T13:13:55.846Z",
+      "logic_type": "random",
+      "is_published": false,
+      "status": "pending",
+      "total_pool": 3000,
+      "published_at": null,
+      "results": null,
+      "created_at": "2026-04-21T13:13:55.846Z",
+      "updated_at": "2026-04-21T17:49:10.209Z"
+    }
+  ],
+  "draw_results": [],
+  "winners": [],
+  "charity_contributions": [],
+  "user_charities": [
+    {
+      "id": "86901429-3395-4d5f-9312-e8a33d37a6bc",
+      "user_id": "d28fc1e5-7077-4a75-8928-286fbd7fd588",
+      "charity_id": "e676a5b8-5d1d-4adf-be5f-68e9cc5876d0",
+      "contribution_percentage": 10,
+      "created_at": "2026-04-21T19:19:04.990Z",
+      "updated_at": "2026-04-21T19:19:04.990Z"
+    }
+  ]
+}
