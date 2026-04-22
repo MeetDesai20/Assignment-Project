@@ -25,6 +25,26 @@ const PLAN_CONFIG = {
   },
 };
 
+const toProviderError = (error, fallbackMessage = 'Payment provider request failed') => {
+  const status =
+    error?.statusCode ||
+    error?.status ||
+    error?.error?.statusCode ||
+    500;
+
+  const message =
+    error?.error?.description ||
+    error?.error?.reason ||
+    error?.description ||
+    error?.message ||
+    fallbackMessage;
+
+  return {
+    statusCode: Number.isInteger(status) ? status : 500,
+    message,
+  };
+};
+
 const buildRenewalDate = (days) => {
   return new Date(Date.now() + days * 24 * 60 * 60 * 1000).toISOString();
 };
@@ -100,17 +120,27 @@ exports.createCheckoutSession = async (req, res) => {
       return handleError(res, new Error('Plan is not configured for checkout'), 400);
     }
 
-    const razorpaySubscription = await razorpay.subscriptions.create({
-      plan_id: plan.planId,
-      total_count: plan.totalCount,
-      customer_notify: 1,
-      quantity: 1,
-      notes: {
-        userId: user.id,
-        planType,
-        email: user.email,
-      },
-    });
+    if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
+      return handleError(res, new Error('Razorpay credentials are not configured on the server'), 500);
+    }
+
+    let razorpaySubscription;
+    try {
+      razorpaySubscription = await razorpay.subscriptions.create({
+        plan_id: plan.planId,
+        total_count: plan.totalCount,
+        customer_notify: 1,
+        quantity: 1,
+        notes: {
+          userId: user.id,
+          planType,
+          email: user.email,
+        },
+      });
+    } catch (providerError) {
+      const mapped = toProviderError(providerError);
+      return handleError(res, new Error(mapped.message), mapped.statusCode);
+    }
 
     await Subscriptions.create({
       userId: user.id,
