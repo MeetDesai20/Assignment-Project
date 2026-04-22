@@ -24,7 +24,15 @@ apiClient.interceptors.request.use((config) => {
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
+    const requestUrl = error.config?.url || '';
+
+    // Only treat explicit auth/session checks as a logout signal.
+    // Protected feature calls (like subscription checkout) should show an error
+    // without wiping the user's session from localStorage.
+    if (
+      error.response?.status === 401 &&
+      /\/auth\/(me|login|signup)$/i.test(requestUrl)
+    ) {
       notifyWarning('Session expired. Please log in again.');
       localStorage.removeItem('token');
       window.location.href = '/login';
