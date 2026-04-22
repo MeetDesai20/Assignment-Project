@@ -30,6 +30,17 @@ const initialCharityForm = {
   isFeatured: false,
 };
 
+const normalizeCharity = (charity = {}) => ({
+  id: charity.id || charity.charityId || charity.charity_id,
+  name: charity.name || charity.charityName || charity.charity_name || '',
+  description: charity.description || '',
+  website: charity.website || '',
+  logoUrl: charity.logoUrl || charity.logo_url || '',
+  isFeatured: Boolean(
+    charity.isFeatured !== undefined ? charity.isFeatured : charity.is_featured
+  ),
+});
+
 /**
  * Admin Dashboard
  * Provides full admin operations with API-backed forms and listings
@@ -236,7 +247,8 @@ export default function AdminDashboardPage() {
     clearAlerts();
     try {
       const response = await apiClient.get('/charities');
-      setCharities(response.data?.data || []);
+      const charityRows = Array.isArray(response.data?.data) ? response.data.data : [];
+      setCharities(charityRows.map(normalizeCharity));
     } catch (err) {
       handleApiError(err, 'Failed to fetch charities');
     } finally {
@@ -277,13 +289,15 @@ export default function AdminDashboardPage() {
   };
 
   const startEditCharity = (charity) => {
-    setEditingCharityId(charity.id);
+    const normalized = normalizeCharity(charity);
+
+    setEditingCharityId(normalized.id);
     setCharityForm({
-      name: charity.name || '',
-      description: charity.description || '',
-      website: charity.website || '',
-      logoUrl: charity.logo_url || '',
-      isFeatured: !!charity.is_featured,
+      name: normalized.name,
+      description: normalized.description,
+      website: normalized.website,
+      logoUrl: normalized.logoUrl,
+      isFeatured: normalized.isFeatured,
     });
     clearAlerts();
   };
@@ -681,7 +695,7 @@ export default function AdminDashboardPage() {
                           <p className="text-label-sm text-on-surface-variant">{charity.website || 'No website'}</p>
                         </div>
                         <div className="flex items-center gap-2">
-                          {charity.is_featured && <Badge label="Featured" variant="primary" size="sm" />}
+                          {charity.isFeatured && <Badge label="Featured" variant="primary" size="sm" />}
                           <Button variant="secondary" size="sm" onClick={() => startEditCharity(charity)}>
                             Edit Charity
                           </Button>
